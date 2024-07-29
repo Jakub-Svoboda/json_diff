@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api-admin/v1/diff", include("diff.urls.admin", namespace="diff")),
+    path("api-admin/v1/diff/", include("differ.urls.admin", namespace="diff")),
 ]
