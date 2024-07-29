@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "json-diff"
+version = "0.1.0"
+description = ""
+authors = ["Jakub Svoboda <jakub.svoboda.developer@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+freezegun = "^1.2"
+responses = "^0.22.0"
+django = "^4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dev-dependencies]
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+skip-numeric-underscore-normalization = true
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+command_line = "./manage.py test"
+
+[tool.coverage.report]
+precision = 2
+omit = [
+    "manage.py",
+    "service/wsgi.py",
+    "service/asgi.py",
+    "service/*settings*",
+    "*/tests/*",
+    "*/migrations/*",
+]
+skip_empty = true
